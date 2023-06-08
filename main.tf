@@ -23,4 +23,5 @@ resource "aws_s3_bucket_object" "object1" {
   key      = each.value
   source   = "./resume/${each.value}"
   etag     = filemd5("./resume/${each.value}")
+  content_type = "text/html"
 }
