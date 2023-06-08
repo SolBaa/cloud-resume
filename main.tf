@@ -18,10 +18,10 @@ data "aws_s3_bucket" "resume" {
 
 # Upload an object
 resource "aws_s3_bucket_object" "object1" {
-  for_each = fileset("./resume/", "**")
-  bucket   = data.aws_s3_bucket.resume.id
-  key      = each.value
-  source   = "./resume/${each.value}"
-  etag     = filemd5("./resume/${each.value}")
+  for_each     = fileset("./resume/", "**")
+  bucket       = data.aws_s3_bucket.resume.id
+  key          = each.value
+  source       = "./resume/${each.value}"
+  etag         = filemd5("./resume/${each.value}")
   content_type = "text/html"
 }
