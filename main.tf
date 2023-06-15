@@ -14,6 +14,7 @@ provider "aws" {
 
 data "aws_s3_bucket" "resume" {
   bucket = "sol-test-152"
+  /* bucket = "sol-cloud-resume" */
 }
 
 # Upload an object
